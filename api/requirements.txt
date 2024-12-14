@@ -1,0 +1,6 @@
+fastapi
+contractions
+nltk
+torch
+transformers
+safetensors
