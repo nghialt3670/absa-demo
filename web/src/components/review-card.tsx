@@ -70,7 +70,7 @@ export default function ReviewCard(props: ReviewCardProps) {
       >
         {tags.map(([word, tag], index) => (
           <span
-            className={`px-2 my-1 rounded-md font-semibold ${getTagStyle(tag)}`}
+            className={`px-1 my-1 rounded-md font-semibold ${getTagStyle(tag)}`}
             key={index}
           >
             {word}
@@ -89,7 +89,7 @@ export default function ReviewCard(props: ReviewCardProps) {
         return <div>Failed to analyze review.</div>;
 
       case "success":
-        return tags.map(tags => <div>{renderTags(tags)}</div>)
+        return renderTags(tags.flatMap(tags => tags))
     }
   };
 
