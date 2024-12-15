@@ -44,6 +44,10 @@ export default function ReviewCard(props: ReviewCardProps) {
       setFetchState("success");
     };
 
+    if (tags.length > 0) {
+      return
+    }
+
     if (review.id in reviewIdToTags) {
       setTags(reviewIdToTags[review.id]);
       setFetchState("success");

@@ -83,7 +83,7 @@ export default function USMapPage() {
 
             const usPlaces = places.filter((place) =>
               US_BOUNDS.contains([place.longitude, place.latitude]),
-            );
+            ).slice(0, 10);
 
             if (usPlaces.length === 0) {
               toast({
