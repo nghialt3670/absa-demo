@@ -3,7 +3,6 @@ import { Card, CardContent, CardHeader } from "./ui/card";
 import { useEffect, useState } from "react";
 import { to } from "await-to-js";
 import useTagsStore from "@/stores/tags-store";
-import { env } from "@/lib/env";
 
 type FetchState = "loading" | "error" | "success";
 
@@ -13,7 +12,7 @@ interface ReviewCardProps {
 
 export default function ReviewCard(props: ReviewCardProps) {
   const { review } = props;
-  const [tags, setTags] = useState<string[][]>([]);
+  const [tags, setTags] = useState<string[][][]>([]);
   const [fetchState, setFetchState] = useState<FetchState>("loading");
   const { reviewIdToTags, saveTags } = useTagsStore();
 
@@ -90,7 +89,7 @@ export default function ReviewCard(props: ReviewCardProps) {
         return <div>Failed to analyze review.</div>;
 
       case "success":
-        return renderTags(tags)
+        return tags.map(tags => <div>{renderTags(tags)}</div>)
     }
   };
 

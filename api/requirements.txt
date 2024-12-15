@@ -4,3 +4,5 @@ nltk
 torch
 transformers
 safetensors
+spacy
+setfit
